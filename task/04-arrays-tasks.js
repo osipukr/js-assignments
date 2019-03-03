@@ -443,9 +443,7 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  const arr = new Array(n).fill(new Array(n).fill(0));
-
-  return arr.map((val, idx) => val.map((_, y) => idx === y));
+  return Array(n).fill(new Array(n).fill(0)).map((val, idx) => val.map((_, y) => idx === y));
 }
 
 /**
@@ -569,14 +567,9 @@ function getElementByIndexes(arr, indexes) {
  *
  */
 function swapHeadAndTail(arr) {
-  let middle = Math.floor(arr.length / 2);
+  const middle = arr.length / 2;
 
-  if(arr.length % 2) {
-    arr.push(arr[middle]);
-    arr.splice(middle, 1);
-  }
-
-  return [].concat.apply(arr, arr.splice(0, middle)); 
+  return [...arr.slice(-middle), ...arr.slice(middle, -middle), ...arr.slice(0, middle)]; 
 }
 
 module.exports = {
