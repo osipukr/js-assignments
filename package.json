@@ -3,10 +3,9 @@
   "version": "1.1.0",
   "description": "JS training tasks",
   "scripts": {
-    "lint": "eslint ./**/*.js",
+    "lint": "eslint ./**/*.js --fix",
     "test": "./node_modules/.bin/mocha",
-    "test-debug": "./node_modules/.bin/mocha --debug-brk",
-    "prepush": "npm run lint && npm test"
+    "test-debug": "./node_modules/.bin/mocha --debug-brk"
   },
   "author": "IT Shark Pro",
   "license": "MIT",
@@ -17,6 +16,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.github.com:it-shark-pro/js-assignments.git"
+    "url": "git@git.github.com:w-trpo/lab1_Osipuk_part2.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm test"
+    }
   }
 }
