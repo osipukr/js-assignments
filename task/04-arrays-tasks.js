@@ -37,7 +37,7 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  return new Array(len).fill().map((_, idx) => idx * 2 + 1);
+  return Array(len).fill().map((_, idx) => idx * 2 + 1);
 }
 
 
@@ -216,7 +216,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-  return arr.map(x => Math.pow(x, 2));
+  return arr.map(x => x * x);
 }
 
 
@@ -443,7 +443,7 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  return Array(n).fill(new Array(n).fill(0)).map((val, idx) => val.map((_, y) => idx === y));
+  return Array(n).fill(Array(n).fill()).map((val, idx) => val.map((_, y) => idx === y));
 }
 
 /**
@@ -475,7 +475,7 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-  return arr.filter((val, idx) => arr.indexOf(val) === idx);
+  return [...new Set(arr)];
 }
 
 /**
