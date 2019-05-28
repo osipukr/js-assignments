@@ -35,12 +35,12 @@ function* get99BottlesOfBeer() {
   for(let i = 99; i > 1; ) {
     yield `${i} bottles of beer on the wall, ${i--} bottles of beer.`;
     yield `Take one down and pass it around, ${i} bottle${i > 1 ? 's' : ''} of beer on the wall.`;
-	}
+  }
 	
-	yield '1 bottle of beer on the wall, 1 bottle of beer.';
-	yield 'Take one down and pass it around, no more bottles of beer on the wall.';
-	yield 'No more bottles of beer on the wall, no more bottles of beer.';
-	yield 'Go to the store and buy some more, 99 bottles of beer on the wall.';
+  yield '1 bottle of beer on the wall, 1 bottle of beer.';
+  yield 'Take one down and pass it around, no more bottles of beer on the wall.';
+  yield 'No more bottles of beer on the wall, no more bottles of beer.';
+  yield 'Go to the store and buy some more, 99 bottles of beer on the wall.';
 }
 
 
@@ -168,12 +168,12 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-  let src1 = source1();
-  let src2 = source2();
+  const src1 = source1();
+  const src2 = source2();
 
   while (true) {
-    let value1 = src1.next().value;
-    let value2 = src2.next().value;
+    const value1 = src1.next().value;
+    const value2 = src2.next().value;
     
     if (value1 === undefined) {
       yield value2;
