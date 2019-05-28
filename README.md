@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/it-shark-pro/js-assignments.svg?branch=master)](https://travis-ci.org/it-shark-pro/js-assignments)
+[![Build Status](https://travis-ci.org/w-trpo/lab1_Osipuk_part2?branch=master)](https://travis-ci.org/w-trpo/lab1_Osipuk_part2)
 ![Hackage-Deps](https://img.shields.io/hackage-deps/v/lens.svg)
-[![Greenkeeper badge](https://badges.greenkeeper.io/it-shark-pro/js-assignments.svg)](https://greenkeeper.io/)
-[![GitHub release](https://img.shields.io/github/release/it-shark-pro/js-assignments.svg)](https://github.com/it-shark-pro/js-assignments/releases/latest)
+[![Greenkeeper badge](https://badges.greenkeeper.io/w-trpo/lab1_Osipuk_part2.svg)](https://greenkeeper.io/)
+[![GitHub release](https://img.shields.io/github/release/w-trpo/lab1_Osipuk_part2.svg)](https://github.com/w-trpo/lab1_Osipuk_part2/releases/latest)
 
 
 # [Brest IT Shark](https://it-shark.pro/)
@@ -27,19 +27,19 @@ And the last idea is to inure trainees to work using unit test and feel uncomfor
 
 ### How to fork this repo
 * Click the **Fork** button at the top-right corner of this page and the repository will be copied to your own account.
-* Run `git clone https://github.com/<your-account>/js-assignments.git` from command line to download the repo.
+* Run `git clone https://github.com/w-trpo/lab1_Osipuk_part2.git` from command line to download the repo.
 
 ### How to setup travis-ci
 * Open [https://travis-ci.org/](https://travis-ci.org/) and sign in with your github account.
 * Activate your forked repo **js-assignments**.
-* Edit local README.md file and update all links (just replace all occurrences of `'it-shark-pro'` with your account name).
+* Edit local README.md file and update all links (just replace all occurrences of `'lab1_Osipuk_part2'` with your account name).
 * Commit and push updated README.md to github:
 ```bash
   git add README.md
   git commit -m "Update the links"
   git push origin master
 ```
-* Open https://github.com/it-shark-pro/js-assignments and test the build icon. Now it will run all tests and update status once you push changes to github. Keep this icon green!
+* Open https://github.com/w-trpo/lab1_Osipuk_part2 and test the build icon. Now it will run all tests and update status once you push changes to github. Keep this icon green!
 
 
 ### How to setup work environment
