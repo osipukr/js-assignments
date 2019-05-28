@@ -32,7 +32,15 @@
  *
  */
 function* get99BottlesOfBeer() {
-  throw new Error('Not implemented');
+  for(let i = 99; i > 1; ) {
+    yield `${i} bottles of beer on the wall, ${i--} bottles of beer.`;
+    yield `Take one down and pass it around, ${i} bottle${i > 1 ? 's' : ''} of beer on the wall.`;
+	}
+	
+	yield '1 bottle of beer on the wall, 1 bottle of beer.';
+	yield 'Take one down and pass it around, no more bottles of beer on the wall.';
+	yield 'No more bottles of beer on the wall, no more bottles of beer.';
+	yield 'Go to the store and buy some more, 99 bottles of beer on the wall.';
 }
 
 
@@ -46,7 +54,15 @@ function* get99BottlesOfBeer() {
  *
  */
 function* getFibonacciSequence() {
-  throw new Error('Not implemented');
+  let previous = 0, current = 1;
+
+  while (true) {
+    const next = previous;
+    previous = current;
+    current += next;
+
+    yield next;
+  }
 }
 
 
@@ -81,7 +97,20 @@ function* getFibonacciSequence() {
  *
  */
 function* depthTraversalTree(root) {
-  throw new Error('Not implemented');
+  const nodes = new Array();
+  let node = root;
+  let crutch = true;
+
+  while(crutch) {
+    if(node.children) {
+      nodes.push(...node.children.reverse());
+    }
+
+    yield node;
+
+    crutch = nodes.length > 0;
+    node = nodes.pop();
+  }
 }
 
 
@@ -107,7 +136,21 @@ function* depthTraversalTree(root) {
  *
  */
 function* breadthTraversalTree(root) {
-  throw new Error('Not implemented');
+  const nodes = [root];
+  let crutch = true;
+  let index = 0;
+
+  while(crutch) {
+    const node = nodes[index++];
+
+    if(node.children) {
+      nodes.push(...node.children);
+    }
+
+    crutch = index !== nodes.length;
+
+    yield node;
+  }
 }
 
 
@@ -125,7 +168,22 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-  throw new Error('Not implemented');
+  let src1 = source1();
+  let src2 = source2();
+
+  while (true) {
+    let value1 = src1.next().value;
+    let value2 = src2.next().value;
+    
+    if (value1 === undefined) {
+      yield value2;
+    } else if (value2 === undefined) {
+      yield value1;
+    } else {
+      yield Math.min(value1, value2);
+      yield Math.max(value1, value2);
+    }
+  }
 }
 
 module.exports = {

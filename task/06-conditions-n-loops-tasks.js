@@ -203,7 +203,7 @@ function findFirstSingleChar(str) {
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
   const start = isStartIncluded ? '[' : '(',
-        end = isEndIncluded ? ']' : ')';
+    end = isEndIncluded ? ']' : ')';
   
   if(a > b) {
     b = [a, a = b][0];
@@ -320,7 +320,7 @@ function getDigitalRoot(num) {
  */
 function isBracketsBalanced(str) {
   const opening = ['[', '{', '(', '<'],
-        closing = [']', '}', ')', '>'], stack = [];
+    closing = [']', '}', ')', '>'], stack = [];
 
   for (let i = 0; i < str.length; i++) {
     if (closing.includes(str[i])) {
@@ -459,7 +459,7 @@ function getCommonDirectoryPath(pathes) {
  *
  */
 function getMatrixProduct(m1, m2) {
-  let result = [];
+  const result = [];
 
   for (let i = 0; i < m1.length; i++) {
     result.push([]);
