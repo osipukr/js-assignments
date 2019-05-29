@@ -12,7 +12,7 @@
  *   'abcdefghijklmnop',  'lmnopqrstuvwxyz'  => 'abcdefghijklmnopqrstuvwxyz'
  */
 function distinctLettersString(value1, value2) {
-  throw new Error('Not implemented');
+  return Object.values(Array.from(new Set(`${value1}${value2}`.split('')))).sort().join('');
 }
 
 
@@ -29,7 +29,15 @@ function distinctLettersString(value1, value2) {
  */
 
 function lowerLetters(value) {
-  throw new Error('Not implemented');
+  return value.match(/[a-z]/g).reduce((acc, char) => {
+    if (acc[char]) {
+      acc[char]++;
+    } else {
+      acc[char] = 1;
+    }
+
+    return acc;
+  }, {});
 }
 
 /**
@@ -51,7 +59,22 @@ function lowerLetters(value) {
  */
 
 function titleCaseConvert(title, minorWords) {
-  throw new Error('Not implemented');
+  const str = title.toLowerCase().split(' '), 
+        minors = minorWords ? minorWords.toLowerCase().split(' ') : '';
+
+  const toTitleCase = (str) => {
+    return `${str[0].toUpperCase()}${str.slice(1).toLowerCase()}`;
+  };
+
+  for (let i = 0; i < str.length; i++) {
+    if (i === 0 || !minors.includes(str[i].toLowerCase())) {
+      str[i] = toTitleCase(str[i]);
+    } else {
+      str[i] = str[i].toLowerCase();
+    }
+  }
+
+  return str.join(' ');
 }
 
 /**
@@ -72,7 +95,24 @@ function titleCaseConvert(title, minorWords) {
  */
 
 function calcRPN(expr) {
-  throw new Error('Not implemented');
+  if (!expr) {
+    return 0;
+  }
+
+  const numbers = expr.split(' '), stack = [];
+
+  for (const number of numbers) {
+    if (/[+\-*/]/.test(number)) {
+      const operand1 = stack.pop();
+      const operand2 = stack.pop();
+
+      stack.push(eval(`${operand2}${number}${operand1}`));
+    } else {
+      stack.push(number);
+    }
+  }
+
+  return stack[stack.length - 1];
 }
 
 module.exports = {
