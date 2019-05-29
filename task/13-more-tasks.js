@@ -60,9 +60,9 @@ function lowerLetters(value) {
 
 function titleCaseConvert(title, minorWords) {
   const str = title.toLowerCase().split(' '), 
-        minors = minorWords ? minorWords.toLowerCase().split(' ') : '';
+    minors = minorWords ? minorWords.toLowerCase().split(' ') : '';
 
-  const toTitleCase = (str) => {
+  const toTitleCase = str => {
     return `${str[0].toUpperCase()}${str.slice(1).toLowerCase()}`;
   };
 
