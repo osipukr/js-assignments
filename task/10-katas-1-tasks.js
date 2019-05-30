@@ -56,7 +56,25 @@ function createCompassPoints(sides = ['N', 'E', 'S', 'W']) {
  *   'nothing to do' => 'nothing to do'
  */
 function* expandBraces(str) {
-  throw new Error('Not implemented');
+  const stack = [str], expanded = [];
+
+  while (stack.length) {
+    const _str = stack.pop();
+    const matched = _str.match(/{([^{}]*)}/);
+
+    if (matched) {
+      const replacements = matched[1].split(',');
+
+      for (const replacement of replacements) {
+        stack.push(_str.replace(matched[0], replacement));
+      }
+
+    } else if (!expanded.includes(_str)) {
+      expanded.push(_str);
+      
+      yield _str;
+    }
+  }
 }
 
 
@@ -115,7 +133,21 @@ function getZigZagMatrix(n) {
  *
  */
 function canDominoesMakeRow(dominoes) {
-  throw new Error('Not implemented');
+  let currentDomino = dominoes.shift(), counter = dominoes.length;
+
+  while (counter) {
+    for (const domino of dominoes) {
+      const isContain = currentDomino.some(value => domino && (value === domino[0] || value === domino[1]));
+
+      if (isContain) {
+        currentDomino = dominoes.splice(dominoes.indexOf(domino), 1)[0];
+      }
+    }
+
+    counter--;
+  }
+
+  return !dominoes.length;
 }
 
 
