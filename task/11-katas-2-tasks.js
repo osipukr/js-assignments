@@ -49,9 +49,9 @@ function parseBankAccount(bankAccount) {
     ' _ |_| _|': 9
   };
 
-  let result = bankAccount.split('\n').slice(0, 3).map(item => item.match(/.../g));
+  const result = bankAccount.split('\n').slice(0, 3).map(item => item.match(/.../g));
   
-  return +result[0].map((value, index) => numbers[value + result[1][index] + result[2][index]]).join("");
+  return +result[0].map((value, index) => numbers[value + result[1][index] + result[2][index]]).join('');
 }
 
 
